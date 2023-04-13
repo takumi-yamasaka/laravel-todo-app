@@ -20,7 +20,7 @@
             <ul>
                 @foreach($questions as $question)
                     <li>
-                        {{ $question->title }}
+                     <a href="{{ route('questions.show', $question->id) }}">{{ $question->title }}</a>
                     </li>
                 @endforeach
             </ul>
