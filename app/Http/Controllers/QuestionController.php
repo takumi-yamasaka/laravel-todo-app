@@ -56,4 +56,41 @@ class QuestionController extends Controller
         return view('questions.show', ['question' => $question]);
     }
 
+    public function createGPT()
+    {
+        return view('questions.create-gpt');
+    }
+
+    public function storeGPT(Request $request)
+{
+    $request->validate([
+        'gpt-generated-json' => 'required',
+    ]);
+
+    $gptData = json_decode($request->input('gpt-generated-json'), true);
+
+    // JSONのデコードエラーをチェック
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        return redirect()->back()->withErrors(['gpt-generated-json' => '入力されたJSONが無効です。']);
+    }
+
+    // JSONの構造をバリデーション
+    if (!isset($gptData['title']) || !isset($gptData['question']) || !isset($gptData['choices']) || !isset($gptData['correct_answer_index'])) {
+        return redirect()->back()->withErrors(['gpt-generated-json' => '入力されたJSONの形式が正しくありません。']);
+    }
+
+    $question = new Question([
+        'title' => $gptData['title'],
+        'question' => $gptData['question'],
+        'choices' => json_encode($gptData['choices']),
+        'correct_answer_index' => $gptData['correct_answer_index'],
+    ]);
+
+    $question->save();
+
+    return redirect()->route('questions.index')->with('success', '問題が登録されました');
+}
+
+
+
 }

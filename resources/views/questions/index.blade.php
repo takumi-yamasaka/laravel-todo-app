@@ -10,4 +10,5 @@
         @endforeach
     </ul>
     <a href="{{ route('questions.create') }}" class="btn btn-primary">問題登録</a>
+    <a href="{{ route('questions.create-gpt') }}" class="btn btn-primary">問題登録・チャットGPTモード</a>
 @endsection
