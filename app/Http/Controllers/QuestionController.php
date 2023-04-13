@@ -39,5 +39,10 @@ class QuestionController extends Controller
 
         return redirect()->route('questions.index')->with('success', '問題集が登録されました');
     }
+    public function show($id)
+    {
+        $question = Question::find($id);
+        return view('questions.show', ['question' => $question]);
+    }
 
 }
