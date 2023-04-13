@@ -20,10 +20,11 @@
             <ul>
                 @foreach($questions as $question)
                     <li>
-                        <a href="{{ route('questions.index', $question->id) }}">{{ $question->title }}</a>
+                        {{ $question->title }}
                     </li>
                 @endforeach
             </ul>
+            <a href="{{ route('questions.create') }}">問題登録</a>
     </body>
 </html>
 
