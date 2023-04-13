@@ -22,7 +22,7 @@
             </div>
         @endforeach
 
-        <button type="button" onclick="checkAnswer()">回答する</button>
+        <button type="button">回答する</button>
     </form>
 
     <div id="result" class="mt-5"></div>
