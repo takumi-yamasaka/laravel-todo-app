@@ -12,8 +12,7 @@
         
 
         <!-- Styles -->
-        <style>
-           
+        
         </style>
     </head>
     <body class="antialiased">
@@ -34,19 +33,31 @@
             </div>
 
             <div>
-                <label for="choices">選択肢 (1つずつ改行して入力してください)</label>
-                <textarea name="choices" id="choices"></textarea>
+                <label for="choice1">選択肢 1</label>
+                <input type="text" name="choice1" id="choice1">
+            </div>
+
+            <div>
+                <label for="choice2">選択肢 2</label>
+                <input type="text" name="choice2" id="choice2">
+            </div>
+
+            <div>
+                <label for="choice3">選択肢 3</label>
+                <input type="text" name="choice3" id="choice3">
+            </div>
+
+            <div>
+                <label for="choice4">選択肢 4</label>
+                <input type="text" name="choice4" id="choice4">
             </div>
 
             <div>
                 <label for="correct_choice">正しい選択肢の番号</label>
-                <input type="number" name="correct_answer_index" id="correct_answer_index">
+                <input type="number" name="correct_answer_index" id="correct_answer_index" min="1" max="4">
             </div>
 
             <button type="submit">登録</button>
         </form>
     </body>
 </html>
-
-
-
