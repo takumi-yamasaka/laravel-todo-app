@@ -3,7 +3,7 @@
 @section('content')
         <h1>問題集の登録</h1>
 
-        <form action="{{ route('questions.store') }}" method="POST">
+        <form action="{{ route('questions.store') }}" id = "quiz-form" method="POST">
             @csrf
 
             <div>
@@ -43,4 +43,13 @@
 
             <button type="submit">登録</button>
         </form>
+        @if ($errors->any())
+            <div class="errors">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @endsection

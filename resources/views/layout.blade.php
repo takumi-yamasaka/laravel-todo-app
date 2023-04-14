@@ -34,11 +34,11 @@
             </div>
         </nav>
     </header>
-
-    <div class="container mx-auto mt-5">
-        @yield('content')
-    </div>
-
+    <main>
+        <div class="content-wrapper"> <!-- 追加 -->
+         @yield('content')
+        </div> <!-- 追加 -->
+    </main>
     <footer class="bg-blue-500 py-4 mt-10">
         <div class="container mx-auto text-center text-white">
             &copy; {{ date('Y') }} 問題集アプリ. All rights reserved.
