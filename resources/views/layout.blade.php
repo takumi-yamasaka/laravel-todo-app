@@ -16,7 +16,7 @@
 <body class="bg-gray-100">
     <header class="bg-blue-500 py-4">
         <nav class="container mx-auto flex justify-between items-center">
-            <a href="/" class="text-white font-bold text-xl">問題集アプリ</a>
+            <a href="/" class="header-font">問題集アプリ</a>
             <div>
                 @guest
                     <a href="{{ route('login') }}" class="text-white mr-4">ログイン</a>
@@ -24,7 +24,7 @@
                 @else
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                       class="text-white">
+                       class="header-font">
                         ログアウト
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
@@ -34,11 +34,11 @@
             </div>
         </nav>
     </header>
-
-    <div class="container mx-auto mt-5">
-        @yield('content')
-    </div>
-
+    <main>
+        <div class="content-wrapper"> <!-- 追加 -->
+         @yield('content')
+        </div> <!-- 追加 -->
+    </main>
     <footer class="bg-blue-500 py-4 mt-10">
         <div class="container mx-auto text-center text-white">
             &copy; {{ date('Y') }} 問題集アプリ. All rights reserved.

@@ -22,11 +22,29 @@
             </div>
         @endforeach
 
-        <button type="button">回答する</button>
+        <button type="button" id = "result" >回答する</button>
+        <input type="hidden" name="correct_answer_index" value="{{ $question->correct_answer_index }}">
     </form>
 
-    <div id="result" class="mt-5"></div>
-
-   
-
     <a href="{{ route('questions.index') }}" class="mt-5">一覧へ戻る</a>
+    <script>
+    const result = document.getElementById('result');
+    const choices = document.querySelectorAll('input[name="choice"]');
+    const correct_answer_index = document.querySelector('input[name="correct_answer_index"]').value;
+    result.addEventListener('click', function() {
+        let selectedChoice;
+        choices.forEach(choice => {
+            if (choice.checked) {
+                selectedChoice = choice.value;
+            }
+        });
+
+        if (selectedChoice == correct_answer_index) {
+            alert('正解です');
+        } else {
+            alert('不正解です');
+        }
+    });
+    </script>
+@endsection
+    

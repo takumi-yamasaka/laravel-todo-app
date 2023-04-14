@@ -15,6 +15,8 @@ Route::middleware('auth')->group(function () {
     Route::get('questions/create', [QuestionController::class, 'create'])->name('questions.create');
     Route::post('questions', [QuestionController::class, 'store'])->name('questions.store');
     Route::get('questions/{id}', [QuestionController::class, 'show'])->name('questions.show');
+    Route::get('/create-gpt', [QuestionController::class, 'createGPT'])->name('questions.create-gpt');
+    Route::post('/store-gpt', [QuestionController::class, 'storeGPT'])->name('questions.store-gpt');
 });
 
 require __DIR__.'/auth.php';
